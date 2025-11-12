@@ -1,0 +1,10 @@
+_target_: algo.bgpbt.BGPBT
+name: 'bgpbt'
+
+# note: 12.5% is the value from the original BG-PBT paper
+quant_top: 0.125
+quant_bottom: 0.125
+# note: if use default mul=3 with steps=3, the entire budget is used up on the first step
+n_init_mul: 1
+
+min_steps_before_eval: 0

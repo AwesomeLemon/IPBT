@@ -1,0 +1,22 @@
+_target_: search_space.cs.ConfigSpaceSearchSpace
+hyperparameters:
+  - name: log10_lr
+    type: Float
+    distribution: Uniform
+    bounds: [ -6, 0 ]
+  - name: rand_aug_n_ops
+    type: Integer
+    distribution: Uniform
+    bounds: [ 1, 4 ]
+  - name: rand_aug_mag
+    type: Integer
+    distribution: Uniform
+    bounds: [ 1, 30 ]
+  - name: log10_weight_decay
+    type: Float
+    distribution: Uniform
+    bounds: [ -8, -2 ]
+  - name: momentum
+    type: Float
+    distribution: Uniform
+    bounds: [ 0.0, 0.999 ]

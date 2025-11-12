@@ -1,0 +1,12 @@
+_target_: task.brax_task.BraxTask
+num_evals_per_step: ${algo.num_evals_per_step}
+viz: False
+num_envs: 256
+
+name: walker2d
+name_pretty: Walker
+
+optimizer:
+  name: Adam
+  lr: 3e-4
+  weight_decay: 0.0

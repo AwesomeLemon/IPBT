@@ -1,0 +1,28 @@
+_target_: task.classification_amp.ClassificationTask
+name_pretty: Cifar100
+t_eval: ${algo.t_eval} # only FirePBT needs intermediate values and so has this != t_step.
+viz: False
+data:
+  name: Cifar100
+  n_classes: 100
+  n_channels: 3
+  val_size: 10000
+
+  rand_aug_n_ops: 1
+  rand_aug_mag: 10
+
+  batch_size: 128
+  num_workers: 2
+
+model:
+  _target_: model.resnet12.ResNet12
+  output_size: ${task.data.n_classes}
+  channels: ${task.data.n_channels}
+  dropblock_dropout: 0.0
+  avg_pool: True
+
+optimizer:
+  name: SGD
+  lr: 0.1
+  momentum: 0.0
+  weight_decay: 0.0005

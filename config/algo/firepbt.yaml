@@ -1,0 +1,6 @@
+_target_: algo.firepbt.FirePBT
+name: 'firepbt'
+
+quant_top: 0.34
+quant_bottom: 0.34
+perturb_factor: 2.0

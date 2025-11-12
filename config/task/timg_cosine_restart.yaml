@@ -1,0 +1,27 @@
+_target_: task.classification_amp.ClassificationTask
+name_pretty: TinyImagenetCosineRestart
+t_eval: ${algo.t_eval} # only FirePBT needs intermediate values and so has this != t_step.
+viz: False
+scheduler: cosine_restart
+data:
+  name: TinyImagenet
+  n_classes: 200
+  n_channels: 3
+  img_size: 224
+
+  rand_aug_n_ops: 1
+  rand_aug_mag: 10
+
+  batch_size: 128
+  num_workers: 4
+
+model:
+  _target_: model.convnext_torch.ConvNeXt
+  stochastic_depth_prob: 0.0
+  num_classes: ${task.data.n_classes}
+
+optimizer:
+  name: SGD
+  lr: 0.1
+  momentum: 0.0
+  weight_decay: 0.0005

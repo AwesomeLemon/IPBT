@@ -1,0 +1,8 @@
+_target_: algo.pbt.PBT
+name: 'pbt'
+
+quant_top: 0.25
+quant_bottom: 0.25
+perturb_factor: 2.0
+
+min_steps_before_eval: 0

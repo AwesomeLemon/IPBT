@@ -1,0 +1,11 @@
+_target_: algo.bgpbt.BGPBT
+name: 'bgpbt'
+
+# note: 12.5% is the value from the original BG-PBT paper
+quant_top: 0.125
+quant_bottom: 0.125
+n_init_mul: 3
+# note: use second stopping criterion from the original BG-PBT paper
+too_long_without_restart: 0.3
+
+min_steps_before_eval: 0

@@ -1,0 +1,15 @@
+defaults:
+  - base
+  - server: star04
+  - algo: pbt
+  - algo/t_step@algo: '50e6'
+  - algo/t_max@algo: '150e6'
+  - algo/pop_size@algo: '8'
+  - task: humanoid
+  - search_space: rl_large
+  - _self_
+
+general:
+  exp_name: '${algo.name}_${task.name_pretty}_0000'
+  exp_desc: 'large space | max full trials 8 | 3 steps'
+  seed_base: 31153

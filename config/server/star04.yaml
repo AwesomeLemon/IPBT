@@ -1,0 +1,2 @@
+ray_address: '128.128.128.128:6379'
+ray_head_node: 'first.second.third'

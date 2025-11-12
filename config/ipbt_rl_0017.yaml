@@ -1,0 +1,18 @@
+defaults:
+  - base
+  - server: star04
+  - algo: ipbt
+  - algo/t_step@algo: '15e5'
+  - algo/t_max@algo: '150e6'
+  - algo/pop_size@algo: '8'
+  - task: humanoid
+  - search_space: rl_large
+  - _self_
+
+general:
+  exp_name: '${algo.name}_${task.name_pretty}_0017'
+  exp_desc: 'large space | max full trials 8 | global meta BO from BG'
+  seed_base: 1723 # different seed because ablation
+
+algo:
+  reinit_population_strategy: 'global'

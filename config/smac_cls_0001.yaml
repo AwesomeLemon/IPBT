@@ -1,0 +1,15 @@
+defaults:
+  - base
+  - server: star04
+  - algo: smac
+  - algo/t_step@algo: '500'
+  - algo/t_max@algo: '50k'
+  - algo/pop_size@algo: '8_raytune'
+  - task: c10_cosine_restart
+  - search_space: cls_large_restart
+  - _self_
+
+general:
+  exp_name: '${algo.name}_${task.name_pretty}_0001'
+  exp_desc: 'large space | max full trials 8 | cosine with warm restarts'
+  seed_base: 31153

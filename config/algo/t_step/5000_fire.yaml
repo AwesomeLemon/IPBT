@@ -1,0 +1,7 @@
+min_steps_before_eval:
+  1: 0
+  2: 5000
+max_eval_steps: 15000
+
+t_step: 5000
+t_eval: 500

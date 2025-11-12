@@ -1,0 +1,15 @@
+defaults:
+  - base
+  - server: star04
+  - algo: ipbt6
+  - algo/t_step@algo: '75e4'
+  - algo/t_max@algo: '150e6'
+  - algo/pop_size@algo: '8'
+  - task: humanoid
+  - search_space: rl_large
+  - _self_
+
+general:
+  exp_name: '${algo.name}_${task.name_pretty}_0022'
+  exp_desc: 'large space | max full trials 8 | step 0_5'
+  seed_base: 1723 # different seed because ablation

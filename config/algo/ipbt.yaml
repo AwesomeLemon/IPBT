@@ -1,0 +1,14 @@
+_target_: algo.ipbt.IPBT
+name: 'ipbt'
+
+quant_top: 0.25
+quant_bottom: 0.25
+n_init_mul: 2
+min_steps_before_eval: 0
+
+shrink_perturb_pair: [ 0.2, 0.1 ]
+t_step_mul: 2
+patience: 3
+stagnation_detection: 'previous-smoothed-or-slow'
+fraction_random_hps_on_restart: 0.5
+fraction_random_weights_on_restart: 0.5

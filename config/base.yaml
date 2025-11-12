@@ -1,0 +1,18 @@
+path:
+  dir_my: '/some/path'
+  data: '${path.dir_my}/data'
+  logs: '${path.dir_my}/ipbt/logs'
+  dir_exp: '${path.logs}/${general.exp_name}/${general.seed_offset}'
+  dir_ckpt: '${path.dir_exp}/checkpoints'
+
+general:
+  continue_auto: False
+  exp_desc: '_'
+  seed_offset: 0
+
+  num_cpus: 2
+  num_gpus: 0.33
+
+algo:
+  delete_old_ckpts: True
+  delete_all_ckpts_at_the_end: True

@@ -1,0 +1,22 @@
+defaults:
+  - base
+  - server: star04
+  - algo: ipbt
+  - algo/t_step@algo: '15e5'
+  - algo/t_max@algo: '150e6'
+  - algo/pop_size@algo: '8'
+  - task: humanoid
+  - search_space: rl_large
+  - _self_
+
+general:
+  exp_name: '${algo.name}_${task.name_pretty}_0018'
+  exp_desc: 'large space | max full trials 8 | reinit weights via distillation'
+  seed_base: 1723 # different seed because ablation
+
+algo:
+  reinit_weights_strategy: 'distill'
+  n_distillation_timesteps: 30000000 # value used in BG-PBT
+  n_init_mul: 3 # value used in BG-PBT
+  shrink_perturb_pair: [ 0.0, 1.0 ]
+  fraction_random_weights_on_restart: 0.0
