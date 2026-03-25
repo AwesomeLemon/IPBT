@@ -282,85 +282,103 @@ def print_significance_with_holm_correction(target_p=0.05):
 if __name__ == '__main__':
     utils.set_plot_style()
 
-    # ---- vs untuned PBTs
-    plot_ipbt_ALL_vs_avg_and_best(
-        nonpbt_baselines=[],
-        plot_best=False,
-        store_pvalues=False,
-        fast=False,
-        suffix='_untuned_PBTs',
-        format='pdf',
-        iqm_plot_kwargs=dict(
-            xlabel='Normalized performance',
+    # # ---- vs untuned PBTs
+    # plot_ipbt_ALL_vs_avg_and_best(
+    #     nonpbt_baselines=[],
+    #     plot_best=False,
+    #     store_pvalues=False,
+    #     fast=False,
+    #     suffix='_untuned_PBTs',
+    #     format='pdf',
+    #     iqm_plot_kwargs=dict(
+    #         xlabel='Normalized performance',
+    #         show_title=False,
+    #         xlabel_x_coordinate=0.6,
+    #         xlabel_y_coordinate=-0.02,
+    #         row_height=0.7
+    #     )
+    # )
+    #
+    # # ---- vs tuned PBTs & baselines
+    # plot_ipbt_ALL_vs_avg_and_best(
+    #     plot_best=True,
+    #     store_pvalues=True,
+    #     fast=False,
+    #     suffix='_tuned_PBTs',
+    #     format='pdf',
+    #     iqm_plot_kwargs=dict(
+    #         xlabel='Normalized performance',
+    #         show_title=False,
+    #         xlabel_x_coordinate=0.6,
+    #         xlabel_y_coordinate=-0.02,
+    #         row_height=0.7,
+    #     )
+    # )
+    #
+    # # ---- print p-values
+    # print_significance_with_holm_correction()
+    #
+    # # ---- heatmaps: Humanoid, Hopper
+    # plot_heatmap_over_steps(
+    #     task='Humanoid',
+    #     is_rl=True,
+    #     format='pdf',
+    #     show_y_ticklabels=True,
+    #     show_title=False,
+    #     figsize=(4.4, 4.5)
+    # )
+    # plot_heatmap_over_steps(
+    #     task='Hopper',
+    #     is_rl=True,
+    #     format='pdf',
+    #     show_y_ticklabels=False,
+    #     show_title=False,
+    #     figsize=(3.4, 4.5)
+    # )
+    #
+    # # ---- ablations
+    # plot_ipbt_all_ablations(
+    #     fast = False,
+    #     format='pdf',
+    #     figure_width=9,
+    #     row_height=0.6,
+    #     xlabel_x_coordinate=0.8,
+    #     xlabel_y_coordinate=-0.01,
+    # )
+    #
+    # # ----- extra ablations
+    # plot_ipbt_extra_ablations(
+    #     fast = False,
+    #     format='pdf',
+    #     figure_width=9,
+    #     row_height=0.6,
+    #     xlabel_x_coordinate=0.6,
+    #     xlabel_y_coordinate=-0.01,
+    # )
+    #
+    # plot_ipbt_distillation_ablation(
+    #     fast = False,
+    #     format='pdf',
+    #     figure_width=9,
+    #     row_height=1.0,
+    #     xlabel_x_coordinate=0.6,
+    #     xlabel_y_coordinate=-0.02,
+    # )
+
+    # ---- extra heatmaps: 6 other tasks
+    def plot_heatmap_helper(task, is_rl, show_y_ticklabels):
+        plot_heatmap_over_steps(
+            task=task,
+            is_rl=is_rl,
+            format='pdf',
+            show_y_ticklabels=show_y_ticklabels,
             show_title=False,
-            xlabel_x_coordinate=0.6,
-            xlabel_y_coordinate=-0.02,
-            row_height=0.7
+            figsize=(4.4, 4.5) if show_y_ticklabels else (3.4, 4.5)
         )
-    )
 
-    # ---- vs tuned PBTs & baselines
-    plot_ipbt_ALL_vs_avg_and_best(
-        plot_best=True,
-        store_pvalues=True,
-        fast=False,
-        suffix='_tuned_PBTs',
-        format='pdf',
-        iqm_plot_kwargs=dict(
-            xlabel='Normalized performance',
-            show_title=False,
-            xlabel_x_coordinate=0.6,
-            xlabel_y_coordinate=-0.02,
-            row_height=0.7,
-        )
-    )
-
-    # ---- print p-values
-    print_significance_with_holm_correction()
-
-    # ---- heatmaps: Humanoid, Hopper
-    plot_heatmap_over_steps(
-        task='Humanoid',
-        is_rl=True,
-        format='pdf',
-        show_y_ticklabels=True,
-        show_title=False,
-        figsize=(4.4, 4.5)
-    )
-    plot_heatmap_over_steps(
-        task='Hopper',
-        is_rl=True,
-        format='pdf',
-        show_y_ticklabels=False,
-        show_title=False,
-        figsize=(3.4, 4.5)
-    )
-
-    # ---- ablations
-    plot_ipbt_all_ablations(
-        fast = False,
-        format='pdf',
-        figure_width=9,
-        row_height=0.6,
-        xlabel_x_coordinate=0.8,
-        xlabel_y_coordinate=-0.01,
-    )
-
-    # ----- extra ablations
-    plot_ipbt_extra_ablations(
-        fast = False,
-        format='pdf',
-        figure_width=9,
-        row_height=0.6,
-        xlabel_x_coordinate=0.6,
-        xlabel_y_coordinate=-0.01,
-    )
-
-    plot_ipbt_distillation_ablation(
-        fast = False,
-        format='pdf',
-        figure_width=9,
-        row_height=1.0,
-        xlabel_x_coordinate=0.6,
-        xlabel_y_coordinate=-0.02,
-    )
+    # plot_heatmap_helper('Cifar10', False, True)
+    # plot_heatmap_helper('Cifar100', False, False)
+    # plot_heatmap_helper('FashionMnist', False, True)
+    # plot_heatmap_helper('TinyImagenet', False, False)
+    plot_heatmap_helper('Pusher', True, True)
+    plot_heatmap_helper('Walker', True, False)

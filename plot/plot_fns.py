@@ -12,7 +12,7 @@ from scipy.stats import stats
 from rliable import library as rly
 from rliable import metrics as rlm
 
-LOGS_DIR = '/path/to/ipbt/logs'
+LOGS_DIR = '/export/scratch2/data/aleksand/ipbt/logs/'
 
 algo_to_pretty_name = {
     'pbt': 'PBT',
