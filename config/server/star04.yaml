@@ -1,2 +1,2 @@
-ray_address: '128.128.128.128:6379'
-ray_head_node: 'first.second.third'
+ray_address: '192.168.63.147:6379'
+ray_head_node: 'star04.scilens.private'

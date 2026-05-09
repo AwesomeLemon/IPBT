@@ -1,7 +1,7 @@
 path:
-  dir_my: '/some/path'
+  dir_my: '/export/scratch2/data/aleksand/'
   data: '${path.dir_my}/data'
-  logs: '${path.dir_my}/ipbt/logs'
+  logs: '${path.dir_my}/ipbt-refactor-codex/logs'
   dir_exp: '${path.logs}/${general.exp_name}/${general.seed_offset}'
   dir_ckpt: '${path.dir_exp}/checkpoints'
 

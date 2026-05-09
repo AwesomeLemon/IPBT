@@ -66,7 +66,9 @@ class ClassificationTask:
                     raise ValueError(f'Unknown scheduler: {scheduler}')
 
             if cpkt_loaded is not None:
-                scheduler.load_state_dict(cpkt_loaded['scheduler_state_dict'])
+                # Replay/non-lineage initial checkpoints may not include scheduler state.
+                if 'scheduler_state_dict' in cpkt_loaded:
+                    scheduler.load_state_dict(cpkt_loaded['scheduler_state_dict'])
 
         # create transform
         dataset = self.dataset_wrapper.dataset

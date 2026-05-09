@@ -1,0 +1,34 @@
+_target_: algo.replay.ReplayAlgo
+name: 'replay'
+
+# BaseAlgo requires these fields even though replay is schedule-export only.
+pop_size: 1
+t_step: 1
+t_max: 1
+
+# Reuse base controls for consistency with other algos.
+delete_old_ckpts: False
+delete_all_ckpts_at_the_end: False
+
+# Required path to a completed reference run dir.
+reference_run_dir: ???
+
+# Optional diagnostics.
+save_helper_plot: True
+helper_plot_name: 'helper_extracted_best_schedule.png'
+helper_plot_copy_to_tmp: False
+
+# execution control:
+# False => export/plot only; True => run actual replay training over extracted segments.
+run_training: True
+
+# restart behavior:
+# apply shrink-perturb at duplicate ticks (restart boundaries) extracted from reference history.
+enable_restart_shrink_perturb: True
+fraction_random_weights_on_restart: 0.0
+
+# Needed by task configs that interpolate ${algo.t_eval}.
+t_eval: 20
+
+# Needed by RL task configs that interpolate ${algo.num_evals_per_step}.
+num_evals_per_step: 1

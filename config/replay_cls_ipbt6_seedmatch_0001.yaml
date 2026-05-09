@@ -1,0 +1,15 @@
+defaults:
+  - base
+  - server: star04
+  - algo: replay
+  - task: c100
+  - search_space: cls_large
+  - _self_
+
+general:
+  exp_name: '${algo.name}_${task.name_pretty}_ipbt6_seedmatch_0001'
+  exp_desc: 'replay'
+  seed_base: 23173
+
+algo:
+  reference_run_dir: '${path.logs}/ipbt6_${task.name_pretty}_0001/${general.seed_offset}'

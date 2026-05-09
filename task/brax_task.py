@@ -123,7 +123,9 @@ class BraxTask:
                     raise ValueError(f'Unknown scheduler: {scheduler}')
 
             if cpkt_loaded is not None:
-                scheduler.load_state_dict(cpkt_loaded['scheduler_state_dict'])
+                # Replay/non-lineage initial checkpoints may not include scheduler state.
+                if 'scheduler_state_dict' in cpkt_loaded:
+                    scheduler.load_state_dict(cpkt_loaded['scheduler_state_dict'])
 
         return {
             'agent': agent, 'env': env, 'env_eval': env_eval, 'batch_size': batch_size,

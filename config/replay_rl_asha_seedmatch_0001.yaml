@@ -1,0 +1,15 @@
+defaults:
+  - base
+  - server: star04
+  - algo: replay
+  - task: humanoid_cosine_restart
+  - search_space: rl_large_restart
+  - _self_
+
+general:
+  exp_name: '${algo.name}_${task.name_pretty}_asha_seedmatch_0001'
+  exp_desc: 'replay_from_asha_HumanoidCosineRestart_0001_seed_matched'
+  seed_base: 23173
+
+algo:
+  reference_run_dir: '${path.logs}/asha_HumanoidCosineRestart_0001/${general.seed_offset}'

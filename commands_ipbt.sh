@@ -183,3 +183,25 @@ done; done
 for seed in {0..7}; do
   python run_smac.py --config-name smac_timg_0001 server=star04 ++general.seed_offset=${seed};
 done;
+
+
+#######################################################
+# 5. Schedule replay
+
+## 5.1. IPBT - CIFAR-10/CIFAR-C100/Fashion-MNIST
+
+for task in c10 c100 fmnist; do
+  for seed in {0..7}; do
+    python run.py --config-name replay_cls_ipbt6_seedmatch_0001 server=star04 task=${task} ++general.seed_offset=${seed};
+done; done
+
+## 5.2. IPBT - Humanoid
+
+for seed in {0..7}; do 
+  python run.py --config-name replay_rl_ipbt6_seedmatch_0001 server=star04 ++general.seed_offset=${seed};
+done
+
+## 5.3. ASHA - Humanoid
+for seed in {0..7}; do
+  python run.py --config-name replay_rl_asha_seedmatch_0001 server=star04 ++general.seed_offset=${seed};
+done;

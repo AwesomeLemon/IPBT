@@ -380,5 +380,24 @@ if __name__ == '__main__':
     # plot_heatmap_helper('Cifar100', False, False)
     # plot_heatmap_helper('FashionMnist', False, True)
     # plot_heatmap_helper('TinyImagenet', False, False)
-    plot_heatmap_helper('Pusher', True, True)
+    # plot_heatmap_helper('Pusher', True, True)
     plot_heatmap_helper('Walker', True, False)
+
+    # ---- schedule replay
+    '''
+    Please use the print_iqm_metrics.py script to generate the values in the tables:
+
+    python plot/print_iqm_metrics.py logs/ipbt6_Cifar100_0001
+    python plot/print_iqm_metrics.py logs/ipbt6_Cifar10_0001
+    python plot/print_iqm_metrics.py logs/ipbt6_FashionMnist_0001
+
+    python plot/print_iqm_metrics.py logs/replay_Cifar100_ipbt6_seedmatch_0001
+    python plot/print_iqm_metrics.py logs/replay_Cifar10_ipbt6_seedmatch_0001
+    python plot/print_iqm_metrics.py logs/replay_FashionMnist_ipbt6_seedmatch_0001
+
+    python plot/print_iqm_metrics.py logs/ipbt6_Humanoid_0001
+    python plot/print_iqm_metrics.py logs/replay_Humanoid_ipbt6_seedmatch_0001
+
+    python plot/print_iqm_metrics.py logs/asha_HumanoidCosineRestart_0001
+    python plot/print_iqm_metrics.py logs/replay_HumanoidCosineRestart_asha_seedmatch_0001
+    '''
